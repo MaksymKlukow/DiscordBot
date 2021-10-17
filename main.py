@@ -29,7 +29,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    print(message.author)
+    print(message.author, 'napisał:', message.content)
 
     if message.author.name == "niczow" or message.author.name == 'GFOXI':
         await message.channel.send("Król napisał")
