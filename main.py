@@ -22,7 +22,8 @@ def update_encouragements(encouraging_message):
 
 
 client = discord.Client()
-WORDS = ("python", "jumble", "easy", "difficult", "answer",  "xylophone")
+WORDS = ("python", "jumble", "easy", "difficult", "answer", "fuck u", "xylophone")
+
 
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
@@ -57,7 +58,5 @@ async def on_message(message):
 
     if message.content.startswith('ruletka'):
         await message.channel.send(random.choice(WORDS))
-
-
 
 client.run(credentials.token)
