@@ -31,7 +31,7 @@ async def on_message(message):
 
     print(message.author)
 
-    if message.author.name == "niczow":
+    if message.author.name == "niczow" or message.author.name == 'GFOXI':
         await message.channel.send("Król napisał")
 
     if message.content.startswith('ping'):
