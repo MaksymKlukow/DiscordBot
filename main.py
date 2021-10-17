@@ -33,6 +33,8 @@ async def on_message(message):
 
     if message.author.name == "niczow" or message.author.name == 'GFOXI':
         await message.channel.send("Król napisał")
+    if message.author.name == "szef":
+        await message.channel.send("Twój stary napisał")
 
     if message.content.startswith('ping'):
         await message.channel.send("pong")
