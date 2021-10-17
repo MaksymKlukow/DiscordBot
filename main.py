@@ -1,16 +1,45 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import discord
+import requests
+import json
+from replit import db
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def update_encouragements(encouraging_message):
+    if "encouragements" in db.key():
+        encouragements = dc["encouragements"]
+        encouragements.append(encouraging_message)
+        db["encouragements"] = encouragements
+    else:
+        db["encouragements"] = [encouraging_message]
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+#  def delete_encouragment(index):
+#    encouragements = dc["encouragements"]
+
+
+client = discord.Client()
+
+
+def get_quote():
+    response = requests.get("https://zenquotes.io/api/random")
+    json_data = json.loads(response.text)
+    quote = json_data[0]['q'] + " - " + json_data[0]['a']
+    return (quote)
+
+
+@client.event
+async def on_ready():
+    print("Pomyslnie wlaczono bota")
+
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('$inspire'):
+        quote = get_quote()
+        await message.channel.send(quote)
+
+
+client.run('ODk5MzU3NTQ4NjIzMzA2Nzcy.YWxl_A.Like2_70ct7fm9dD46tUOkYcYWA')
