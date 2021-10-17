@@ -1,17 +1,13 @@
 import discord
 import requests
 import json
+import time
+import random
+import asyncio
 from replit import db
 
+TOKEN = "ODk5MzU3NTQ4NjIzMzA2Nzcy.YWxl_A.yk02UEHqTtZorUYcTvg_6PbooJc"
 client = discord.Client()
-
-
-def get_quote():
-    response = requests.get("https://zenquotes.io/api/random")
-    json_data = json.loads(response.text)
-    quote = json_data[0]['q'] + " - " + json_data[0]['a']
-    return (quote)
-
 
 @client.event
 async def on_ready():
@@ -23,9 +19,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$inspire'):
-        quote = get_quote()
-        await message.channel.send(quote)
+    if message.content.startswith('ping'):
+        await message.channel.send("pong")
 
-
-client.run('ODk5MzU3NTQ4NjIzMzA2Nzcy.YWxl_A.Like2_70ct7fm9dD46tUOkYcYWA')
+client.run(TOKEN)
