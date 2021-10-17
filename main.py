@@ -3,20 +3,6 @@ import requests
 import json
 from replit import db
 
-
-def update_encouragements(encouraging_message):
-    if "encouragements" in db.key():
-        encouragements = dc["encouragements"]
-        encouragements.append(encouraging_message)
-        db["encouragements"] = encouragements
-    else:
-        db["encouragements"] = [encouraging_message]
-
-
-#  def delete_encouragment(index):
-#    encouragements = dc["encouragements"]
-
-
 client = discord.Client()
 
 
