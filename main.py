@@ -21,4 +21,4 @@ async def on_message(message):
     if message.content.startswith('ty kurwo'):
         await message.channel.send("sam jestes kurwą")
 
-client.run(credentials.TOKEN)
+client.run(credentials.TOKEN) #credentials.py for saver usage
