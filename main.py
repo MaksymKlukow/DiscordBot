@@ -8,19 +8,6 @@ import asyncio
 from discord.ext.commands import Bot
 
 
-def update_encouragements(encouraging_message):
-    if "encouragements" in db.key():
-        encouragements = db["encouragements"]
-        encouragements.append(encouraging_message)
-        db["encouragements"] = encouragements
-    else:
-        db["encouragements"] = [encouraging_message]
-
-
-#  def delete_encouragment(index):
-#    encouragements = dc["encouragements"]
-
-
 client = discord.Client()
 WORDS = ("python", "jumble", "easy", "difficult", "answer", "fuck u", "xylophone")
 
