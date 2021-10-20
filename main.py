@@ -29,21 +29,17 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    print(message.author, 'napisał:', message.content)
+    print(message.author, 'napisał:', message.content.lower())
 
     if message.author.name == "niczow" or message.author.name == 'GFOXI':
         await message.channel.send("Król napisał")
     if message.author.name == "szef":
         await message.channel.send("Twój stary napisał")
 
-    if message.content.startswith('ping'):
+    if message.content.lower() == 'ping':
         await message.channel.send("pong")
-    if message.content.startswith('pong'):
+    if message.content.lower() == 'pong':
         await message.channel.send("ping")
-    if message.content.startswith('Ping'):
-        await message.channel.send("Pong")
-    if message.content.startswith('Pong'):
-        await message.channel.send("Ping")
 
     if message.content.startswith('ruletka'):
         await message.channel.send(random.choice(WORDS))
